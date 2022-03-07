@@ -21,6 +21,7 @@
 
 window.onload = function () {
   if (localStorage.getItem("validReferral") !== "true") {
+    console.log("localstorage not present");
     window.location.href = "/";
   }
 
@@ -47,7 +48,7 @@ function luhn(num){
             sum +=( curDigit*2)-9;
           }
           else
-          {window.location.href = "/";
+          {
             sum += curDigit*2;
           }
       }
@@ -111,5 +112,6 @@ function sendData() {
 }
 
 function returnHome() {
+  console.log("Returning Home");
   window.location.href = "/";
 }
