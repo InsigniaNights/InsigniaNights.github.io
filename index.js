@@ -22,7 +22,7 @@
   })()
 
 function validateReferral() {
-    console.log("Validating Referral")
+    console.log("Validating Referral");
     if (document.getElementById("referral").checkValidity()) {
         event.preventDefault();
     	window.location.href = "/checkout";
