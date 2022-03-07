@@ -23,12 +23,9 @@
 
 function validateReferral() {
     if (document.getElementById("referral").checkValidity()) {
-        event.preventDefault()
-    	alert("vaild!")
+        event.preventDefault();
+    	window.location.href = "/checkout";
+        localStorage.setItem("validReferral", "true");
     }
     return false;
 }
-
-$.getJSON('https://api.ipify.org?format=json', function(data){
-    console.log(data.ip);
-});
