@@ -76,7 +76,7 @@ function validateCard() {
 function validateForm() {
   if (document.getElementById("checkoutForm").checkValidity()) {
     event.preventDefault();
-    // sendData();
+    sendData();
     $("#purchaseComplete").modal("show");
   }
   return false;
