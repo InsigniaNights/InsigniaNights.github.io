@@ -22,7 +22,6 @@
 window.onload = function () {
   if (localStorage.getItem("validReferral") !== "true") {
     console.log("localstorage not present");
-    window.location.href = "/";
   }
 
   document.getElementById("cc-number").onchange = validateCard;
